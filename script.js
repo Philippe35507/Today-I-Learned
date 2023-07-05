@@ -31,7 +31,7 @@ console.log(isCorrect);
 */
 
 // console.log(parseInt("24.55554ccc"));
-
+/*
 function calcFactAge(year) {
   const currentYear = new Date().getFullYear();
   const age = currentYear - year;
@@ -51,7 +51,7 @@ const calcFactAge2 = (year) =>
     : `Impossible year. Year needs to be less or equal ${new Date().getFullYear()}`;
 console.log(calcFactAge2(2014));
 console.log(calcFactAge2(2037));
-
+*/
 /*
 let votesInteresting = 20;
 let votesMindblowing = 5;
@@ -93,3 +93,16 @@ const str = `The current fact is "${text}". It is ${calcFactAge(
 }.`;
 console.log(str);
 */
+
+const fact = ["Lisbon is the capital of Portugal", 2015, true];
+console.log(fact);
+console.log(fact[5]);
+console.log(fact.length);
+console.log(fact[fact.length - 2]);
+
+const [text, createdIn] = fact;
+console.log(text);
+console.log(createdIn);
+
+const newFact = [...fact, "society"]; // poss inverse fact - society
+console.log(newFact);

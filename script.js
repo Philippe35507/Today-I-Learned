@@ -35,9 +35,32 @@ console.log(parseInt("24.55554ccc"));
 function calcFactAge(year) {
   const currentYear = new Date().getFullYear();
   const age = currentYear - year;
-  return age;
+
+  if (age >= 0) return age;
+  else return "Impossible year";
 }
 
 const age1 = calcFactAge(2014);
 console.log(age1);
 console.log(calcFactAge(2020));
+console.log(calcFactAge(2037));
+
+let votesInteresting = 20;
+let votesMindblowing = 0;
+
+if (votesInteresting === votesMindblowing) {
+  alert("This fact is equally interesting and mindblowing");
+} else if (votesInteresting > votesMindblowing) {
+  console.log("Interesting fact!");
+} else if (votesInteresting < votesMindblowing) {
+  console.log("Mindblowing fact!");
+}
+
+// falsy values: 0, "", null, undefined
+// truthy value: everything else...
+
+if (votesMindblowing) {
+  console.log("Mindblowing fact!");
+} else {
+  console.log("Nothing special...");
+}

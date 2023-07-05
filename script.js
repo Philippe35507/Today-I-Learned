@@ -100,9 +100,29 @@ console.log(fact[5]);
 console.log(fact.length);
 console.log(fact[fact.length - 2]);
 
-const [text, createdIn] = fact;
+const [text, createdIn] = fact; // destructuring
 console.log(text);
 console.log(createdIn);
 
 const newFact = [...fact, "society"]; // poss inverse fact - society
 console.log(newFact);
+
+const factObj = {
+  text: "Lisbon is the capital of Portugal",
+  category: "society",
+  createdIn: 2015,
+  isCorrect: true,
+  createSummary: function () {
+    return `the fact "${
+      this.text
+    }" is from the category ${this.category.toUpperCase()}`;
+  },
+};
+
+console.log(factObj.text);
+console.log(factObj["text"]);
+
+const { category, isCorrect } = factObj; // destructuring
+console.log(category);
+console.log(isCorrect);
+console.log(factObj.createSummary());

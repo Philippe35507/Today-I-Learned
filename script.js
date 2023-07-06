@@ -2,6 +2,9 @@ console.log("Hello World");
 
 const btn = document.querySelector(".btn-open");
 const form = document.querySelector(".fact-form");
+const factsList = document.querySelector(".facts-list");
+
+factsList.innerHTML = "";
 
 btn.addEventListener("click", function () {
   if (form.classList.contains("hidden")) {
@@ -93,7 +96,7 @@ const str = `The current fact is "${text}". It is ${calcFactAge(
 }.`;
 console.log(str);
 */
-
+/*
 const fact = ["Lisbon is the capital of Portugal", 2015, true];
 console.log(fact);
 console.log(fact[5]);
@@ -198,3 +201,4 @@ const { category, isCorrect } = factObj; // destructuring
 console.log(category);
 console.log(isCorrect);
 console.log(factObj.createSummary());
+*/

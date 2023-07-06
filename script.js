@@ -43,6 +43,9 @@ const CATEGORIES = [
   { name: "news", color: "#8b5cf6" },
 ];
 
+// console.log(CATEGORIES.find((cat) => cat.name === "society").color);
+// console.log(CATEGORIES.find((cat) => cat.name === "society"));
+
 // Selecting DOM elements
 const btn = document.querySelector(".btn-open");
 const form = document.querySelector(".fact-form");
@@ -69,6 +72,8 @@ async function loadFacts() {
   );
   const data = await res.json();
   // console.log(data);
+  // const filteredData = data.filter((fact) => fact.category === "technology");
+
   createFactsList(data);
 }
 
@@ -85,11 +90,13 @@ function createFactsList(dataArray) {
     target="_blank"
     >(Source)</a>
     </p>
-    <span class="tag" style="background-color: #3b82f6"
+    <span class="tag" style="background-color: ${
+      CATEGORIES.find((cat) => cat.name === fact.category).color
+    }"
     >${fact.category}</span>
   </li>`
   );
-  console.log(htmlArr);
+  // console.log(htmlArr);
   const html = htmlArr.join("");
   factsList.insertAdjacentHTML("afterbegin", html);
 }
@@ -104,6 +111,9 @@ btn.addEventListener("click", function () {
     btn.textContent = "Share a Fact";
   }
 });
+
+// console.log([7, 64, 6, -23, 11].filter((el) => el > 10));  returns a new array
+// console.log([7, 64, 6, -23, 11].find((el) => el > 10));    returns a value
 
 /*
 let votesInteresting = 23;

@@ -35,22 +35,26 @@ const initialFacts = [
   },
 ];
 
-function Counter() {
-  const [count, setCount] = useState(0);
+/* function Counter() {
+   const [count, setCount] = useState(0);
 
   // javascript: btn.addEventListener("click", function()...)
 
-  return (
-    <div>
-      <span style={{ fontSize: "40px" }}>{count}</span>
+   return (
+     <div>
+       <span style={{ fontSize: "40px" }}>{count}</span>
       <button className="btn btn-large" onClick={() => setCount((c) => c + 1)}>
         +1
       </button>
     </div>
   );
 }
+*/
 
 function App() {
+  // 1.Define state variable
+  const [showForm, setShowForm] = useState(true);
+
   const appTitle = "Today I Learned!";
   return (
     <>
@@ -60,10 +64,16 @@ function App() {
           <img src="logo.png" alt="Today I leaned logo" />
           <h1>{appTitle}</h1>
         </div>
-        <button className="btn btn-large btn-open">Share a fact</button>
+        <button
+          className="btn btn-large btn-open"
+          // 2.Update state variable
+          onClick={() => setShowForm((show) => !show)}
+        >
+          Share a fact
+        </button>
       </header>
-      <Counter />
-      <NewFactForm />
+      {/* 2.Use state variable  */}
+      {showForm ? <NewFactForm /> : null}
       <main className="main">
         <CategoryFilter />
         <FactList />

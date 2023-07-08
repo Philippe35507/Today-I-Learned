@@ -150,6 +150,12 @@ h1 {
   background-color: #44403c;
 }
 
+.disputed {
+  color: #ef4444;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
 ul {
   list-style: none;
 }

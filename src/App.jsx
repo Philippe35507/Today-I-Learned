@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import supabase from "./supabase.jsx";
 import "./style.css";
 
 const initialFacts = [
@@ -35,25 +36,17 @@ const initialFacts = [
   },
 ];
 
-/* function Counter() {
-   const [count, setCount] = useState(0);
-
-  // javascript: btn.addEventListener("click", function()...)
-
-   return (
-     <div>
-       <span style={{ fontSize: "40px" }}>{count}</span>
-      <button className="btn btn-large" onClick={() => setCount((c) => c + 1)}>
-        +1
-      </button>
-    </div>
-  );
-}
-*/
-
 function App() {
   const [showForm, setShowForm] = useState(false);
-  const [facts, setFacts] = useState(initialFacts);
+  const [facts, setFacts] = useState([]);
+
+  useEffect(function () {
+    async function getFacts() {
+      const { data: facts, error } = await supabase.from("facts").select("*");
+      setFacts(facts);
+    }
+    getFacts();
+  }, []);
 
   return (
     <>
